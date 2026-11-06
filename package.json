@@ -1,0 +1,15 @@
+{
+  "name": "implementation-readiness-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Synthetic implementation-readiness decision workbench",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "snapshot": "node scripts/generate-snapshot.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

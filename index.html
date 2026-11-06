@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Synthetic implementation-readiness decision workbench">
+    <title>Implementation Readiness Workbench</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23183c2d%22/><text x=%2232%22 y=%2241%22 text-anchor=%22middle%22 font-size=%2232%22 font-family=%22Arial%22 font-weight=%22700%22 fill=%22white%22>N</text></svg>">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="./" aria-label="Northstar Cloud workbench home">
+          <span class="brand-mark">N</span>
+          <span><strong>Northstar</strong><small>Implementation OS</small></span>
+        </a>
+        <nav aria-label="Workbench navigation">
+          <button class="nav-item active" data-view="readiness"><span>◆</span>Readiness</button>
+          <button class="nav-item" data-view="audit"><span>◷</span>Audit log</button>
+        </nav>
+        <div class="sidebar-note">
+          <span>Synthetic demo</span>
+          <p>No customer or employer data.</p>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Implementation readiness</p>
+            <h1 id="project-name">Loading project…</h1>
+            <p id="project-meta" class="project-meta"></p>
+          </div>
+          <span id="launch-badge" class="status-pill">Loading</span>
+        </header>
+
+        <section id="readiness-view" class="content-view">
+          <div id="summary-cards" class="summary-grid" aria-label="Readiness summary"></div>
+          <section class="progress-panel" aria-label="Readiness progress">
+            <div><strong id="progress-label"></strong><span id="progress-value"></span></div>
+            <div class="progress-track"><div id="progress-bar" class="progress-fill"></div></div>
+            <p>Progress counts only matched requirements and explicitly approved exceptions. Blockers are never averaged away.</p>
+          </section>
+
+          <section class="table-panel">
+            <div class="panel-header">
+              <div><p class="eyebrow">Configuration comparison</p><h2>Desired vs live state</h2></div>
+              <div class="table-tools">
+                <span id="visible-count"></span>
+                <label for="filter">Filter</label>
+                <select id="filter">
+                  <option value="all">All statuses</option>
+                  <option value="ready">Ready</option>
+                  <option value="blocked">Blocked</option>
+                  <option value="needs_review">Needs review</option>
+                  <option value="approved_exception">Approved exception</option>
+                </select>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>Requirement</th><th>Desired state</th><th>Live state</th><th>Status</th><th>Owner and next action</th><th></th></tr></thead>
+                <tbody id="requirements-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section id="audit-view" class="content-view" hidden>
+          <div class="audit-panel">
+            <p class="eyebrow">Accountability</p>
+            <h2>Decision history</h2>
+            <p class="section-intro">Every approval, requested change, and validation event remains attributable.</p>
+            <div id="audit-list" class="audit-list"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <aside id="drawer" class="drawer" aria-hidden="true" aria-label="Requirement details">
+      <div id="drawer-backdrop" class="drawer-backdrop"></div>
+      <div class="drawer-panel">
+        <button id="drawer-close" class="drawer-close" aria-label="Close details">×</button>
+        <div id="drawer-content"></div>
+      </div>
+    </aside>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+{
+  "project_id": "IMP-1042",
+  "launch_status": "blocked",
+  "counts": {
+    "ready": 4,
+    "blocked": 3,
+    "needs_review": 2,
+    "approved_exception": 0
+  },
+  "resolved": 4,
+  "total": 9,
+  "items": [
+    {
+      "id": "REQ-001",
+      "label": "Pay schedule",
+      "status": "ready",
+      "reason": "Desired and live states match with required evidence.",
+      "owner": "Payroll operations",
+      "next_action": "None"
+    },
+    {
+      "id": "REQ-002",
+      "label": "Employee ID format",
+      "status": "blocked",
+      "reason": "Required live configuration is missing.",
+      "owner": "Data migration",
+      "next_action": "Configure the employee ID pattern and rerun validation."
+    },
+    {
+      "id": "REQ-003",
+      "label": "Base currency",
+      "status": "ready",
+      "reason": "Desired and live states match with required evidence.",
+      "owner": "Finance systems",
+      "next_action": "None"
+    },
+    {
+      "id": "REQ-004",
+      "label": "Overtime approval chain",
+      "status": "needs_review",
+      "reason": "The difference requires accountable human judgment.",
+      "owner": "Implementation lead",
+      "next_action": "Confirm whether Finance approval is mandatory at launch."
+    },
+    {
+      "id": "REQ-005",
+      "label": "Records retention",
+      "status": "blocked",
+      "reason": "Live state conflicts with the required desired state.",
+      "owner": "Security and compliance",
+      "next_action": "Update retention configuration to the approved requirement."
+    },
+    {
+      "id": "REQ-006",
+      "label": "Launch notification window",
+      "status": "ready",
+      "reason": "Desired and live states match with required evidence.",
+      "owner": "Customer success",
+      "next_action": "None"
+    },
+    {
+      "id": "REQ-007",
+      "label": "Manager hierarchy source",
+      "status": "blocked",
+      "reason": "Required evidence is missing.",
+      "owner": "Integration engineer",
+      "next_action": "Attach the signed source-mapping record."
+    },
+    {
+      "id": "REQ-008",
+      "label": "Historical adjustment approval",
+      "status": "ready",
+      "reason": "Desired and live states match with required evidence.",
+      "owner": "Payroll operations",
+      "next_action": "Run the final control test before launch."
+    },
+    {
+      "id": "REQ-009",
+      "label": "Cost-centre export cadence",
+      "status": "needs_review",
+      "reason": "The difference requires accountable human judgment.",
+      "owner": "Reporting lead",
+      "next_action": "Decide whether weekly export is acceptable for the first release."
+    }
+  ]
+}

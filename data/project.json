@@ -1,0 +1,152 @@
+{
+  "project": {
+    "id": "IMP-1042",
+    "customer": "Harbor & Pine",
+    "region": "Ireland",
+    "target_launch_date": "2026-12-01",
+    "implementation_lead": "Avery Chen"
+  },
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "area": "Pay operations",
+      "label": "Pay schedule",
+      "desired_value": "Monthly, last working day",
+      "live_value": "Monthly, last working day",
+      "required": true,
+      "consequential": true,
+      "evidence_required": true,
+      "evidence_ids": ["EVD-001"],
+      "owner": "Payroll operations",
+      "next_action": "None",
+      "validation": {"type": "exact"}
+    },
+    {
+      "id": "REQ-002",
+      "area": "Identity",
+      "label": "Employee ID format",
+      "desired_value": "HP-####",
+      "live_value": "",
+      "required": true,
+      "consequential": false,
+      "evidence_required": true,
+      "evidence_ids": ["EVD-002"],
+      "owner": "Data migration",
+      "next_action": "Configure the employee ID pattern and rerun validation.",
+      "validation": {"type": "exact"}
+    },
+    {
+      "id": "REQ-003",
+      "area": "Finance",
+      "label": "Base currency",
+      "desired_value": "EUR",
+      "live_value": "EUR",
+      "required": true,
+      "consequential": true,
+      "evidence_required": true,
+      "evidence_ids": ["EVD-003"],
+      "owner": "Finance systems",
+      "next_action": "None",
+      "validation": {"type": "exact"}
+    },
+    {
+      "id": "REQ-004",
+      "area": "Approvals",
+      "label": "Overtime approval chain",
+      "desired_value": "Manager then Finance",
+      "live_value": "Manager only",
+      "required": true,
+      "consequential": true,
+      "evidence_required": true,
+      "evidence_ids": ["EVD-004"],
+      "owner": "Implementation lead",
+      "next_action": "Confirm whether Finance approval is mandatory at launch.",
+      "validation": {"type": "reviewable_difference"}
+    },
+    {
+      "id": "REQ-005",
+      "area": "Compliance",
+      "label": "Records retention",
+      "desired_value": "7 years",
+      "live_value": "5 years",
+      "required": true,
+      "consequential": true,
+      "evidence_required": true,
+      "evidence_ids": ["EVD-005"],
+      "owner": "Security and compliance",
+      "next_action": "Update retention configuration to the approved requirement.",
+      "validation": {"type": "exact"}
+    },
+    {
+      "id": "REQ-006",
+      "area": "Change management",
+      "label": "Launch notification window",
+      "desired_value": "14 days",
+      "live_value": "14 days",
+      "required": true,
+      "consequential": false,
+      "evidence_required": true,
+      "evidence_ids": ["EVD-006"],
+      "owner": "Customer success",
+      "next_action": "None",
+      "validation": {"type": "exact"}
+    },
+    {
+      "id": "REQ-007",
+      "area": "Data ownership",
+      "label": "Manager hierarchy source",
+      "desired_value": "HRIS nightly sync",
+      "live_value": "HRIS nightly sync",
+      "required": true,
+      "consequential": false,
+      "evidence_required": true,
+      "evidence_ids": [],
+      "owner": "Integration engineer",
+      "next_action": "Attach the signed source-mapping record.",
+      "validation": {"type": "exact"}
+    },
+    {
+      "id": "REQ-008",
+      "area": "Controls",
+      "label": "Historical adjustment approval",
+      "desired_value": "Payroll owner plus Finance",
+      "live_value": "Payroll owner plus Finance",
+      "required": true,
+      "consequential": true,
+      "evidence_required": true,
+      "evidence_ids": ["EVD-007"],
+      "owner": "Payroll operations",
+      "next_action": "Run the final control test before launch.",
+      "validation": {"type": "exact"}
+    },
+    {
+      "id": "REQ-009",
+      "area": "Reporting",
+      "label": "Cost-centre export cadence",
+      "desired_value": "Daily",
+      "live_value": "Weekly",
+      "required": false,
+      "consequential": false,
+      "evidence_required": true,
+      "evidence_ids": ["EVD-008"],
+      "owner": "Reporting lead",
+      "next_action": "Decide whether weekly export is acceptable for the first release.",
+      "validation": {"type": "reviewable_difference"}
+    }
+  ],
+  "evidence": [
+    {"id": "EVD-001", "title": "Pay calendar approval", "type": "decision record", "source": "Fictional workshop 03", "captured_at": "2026-10-20", "summary": "Customer payroll owner approved the monthly last-working-day schedule."},
+    {"id": "EVD-002", "title": "Identity mapping", "type": "requirements note", "source": "Fictional data workbook", "captured_at": "2026-10-21", "summary": "Employee identifiers must use the HP prefix followed by four digits."},
+    {"id": "EVD-003", "title": "Finance configuration approval", "type": "approval", "source": "Fictional finance review", "captured_at": "2026-10-22", "summary": "EUR is the approved base currency for launch."},
+    {"id": "EVD-004", "title": "Overtime control requirement", "type": "policy excerpt", "source": "Fictional operating policy", "captured_at": "2026-10-23", "summary": "The desired process includes sequential manager and Finance approval."},
+    {"id": "EVD-005", "title": "Retention decision", "type": "control requirement", "source": "Fictional compliance register", "captured_at": "2026-10-24", "summary": "The approved records-retention period is seven years."},
+    {"id": "EVD-006", "title": "Launch communication plan", "type": "project plan", "source": "Fictional launch plan", "captured_at": "2026-10-25", "summary": "Employees receive launch communication fourteen days before go-live."},
+    {"id": "EVD-007", "title": "Adjustment control design", "type": "control test", "source": "Fictional control workshop", "captured_at": "2026-10-27", "summary": "Historical changes require approval from the payroll owner and Finance."},
+    {"id": "EVD-008", "title": "Reporting requirement", "type": "requirements note", "source": "Fictional reporting workshop", "captured_at": "2026-10-28", "summary": "The preferred cost-centre export cadence is daily; launch criticality is unresolved."}
+  ],
+  "approvals": [],
+  "audit_log": [
+    {"timestamp": "2026-11-05T09:15:00Z", "actor": "System", "action": "validation_run", "object_id": "IMP-1042", "detail": "Readiness rules evaluated against the latest fictional configuration snapshot."},
+    {"timestamp": "2026-11-05T09:20:00Z", "actor": "Avery Chen", "action": "owner_assigned", "object_id": "REQ-002", "detail": "Data migration assigned to configure the employee ID format."}
+  ]
+}
